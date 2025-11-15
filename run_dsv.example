@@ -1,0 +1,58 @@
+@echo off
+
+echo ===========================================
+echo Inicializando ambiente da aplicação...
+echo ===========================================
+
+REM --------------------------------------------
+REM 1. Detectar Python automaticamente
+REM --------------------------------------------
+echo Detectando Python instalado...
+where python >nul 2>&1
+IF %ERRORLEVEL% NEQ 0 (
+    echo ERRO: Python nao encontrado no PATH.
+    echo Verifique sua instalação.
+    pause
+    exit /b
+)
+echo Python encontrado.
+
+REM --------------------------------------------
+REM 2. Ativar ambiente virtual (venv)
+REM --------------------------------------------
+echo Ativando ambiente virtual...
+
+IF EXIST ".\venv\Scripts\activate" (
+    call .\venv\Scripts\activate
+    echo Ambiente virtual ativado.
+) ELSE (
+    echo ERRO: Ambiente virtual nao encontrado na pasta /venv.
+    echo Crie com: python -m venv venv
+    pause
+    exit /b
+)
+
+REM --------------------------------------------
+REM 3. Configurar variáveis de ambiente
+REM --------------------------------------------
+echo Configurando variaveis...
+
+set FLASK_APP=app.py
+set FLASK_ENV=development
+set APP_ENV=development
+set APP_DEBUG=1
+
+REM Variáveis de IA Generativa (exemplo)
+set OPENAI_API_KEY=
+set OPENAI_API_BASE=https://api.openai.com/v1
+
+echo Variaveis de ambiente configuradas.
+
+REM --------------------------------------------
+REM 4. Executar o servidor Flask
+REM --------------------------------------------
+echo ===========================================
+echo Iniciando servidor Flask...
+echo ===========================================
+
+flask --app app.py --debug run

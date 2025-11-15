@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Share+Tech&family=Unbounded:wght@200..900&display=swap');
+body {
+    /* background-color: #282e38; */
+    background-color: #020024;
+    /* background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%); */
+    font-family: "Poppins", sans-serif;
+}
+h1 {
+    color: #020024;
+    font-family: "Unbounded", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+section {
+    background-color: #f7f8f9;
+}
+.div-centro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+    float: center;
+}
+.input_chat {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    width: 100%;
+}
+.button_chat {
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+    float: center;
+}
+.user_message {
+    border-radius: 20px;
+    width: 50%;
+    float: right;
+    display: flex;
+}
+.assistant_message {
+    border-radius: 20px;
+    width: 50%;
+    float: left;
+    display: flex;
+}
+.user_logo, .assistant_logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+#submit-btn-section {
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+}
+#input-chat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-between;
+}
+#send-btn {
+    background-color: #020024;
+    color: #FFFFFF;
+}
+#clear-btn {
+    background-color: #FFFFFF;
+    color: #020024;
+    border: 2px solid #020024;
+}

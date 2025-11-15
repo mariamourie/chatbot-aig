@@ -1,0 +1,20 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+env/
+venv/
+.venv/
+ENV/
+
+# IDEs and editors
+.vscode/
+
+# Environment files (dotenv)
+.env
+.env.* 
+
+# Sensitive batch with environment variables
+run_dsv.bat

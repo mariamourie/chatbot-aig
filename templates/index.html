@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assistente Virtual GenAssist</title>
+    <link rel="stylesheet" href="../static/style/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body class="w-full p-5 bg-gray-800">
+    <section class="w-full min-h-96 shadow-xl/30 p-3 rounded-md mt-2 w-7xl flex flex-col">
+        <h1 class="text-4xl p-2 text-center">GenAssist</h1>
+        <div class="my-2">
+        {% if historico_chat %}
+            <div>
+                {% for message in historico_chat %} 
+                    {% if message.role == 'user' %}
+                    <div class="user_message bg-gray-300 p-4 m-3">
+                        <span> {{ message.content }} </span>
+                    </div>
+                    {% else %}
+                    <div class="assistant_message bg-gray-300 p-4 m-3">
+                        <span> {{ message.content }} </span>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+        </div>
+        <div  id="input-section" class="w-full flex flex-row justify-center items-center mt-auto">
+            <form method="POST" action="/">
+                <input class="w-3xl bg-gray-300 py-3 px-5 rounded-full" type="text" name="pergunta" placeholder="Digite sua pergunta" />
+                <input id="send-btn" class="rounded-full py-3 px-5 bg-gray-900 text-white" type="submit" name="submit" value="Enviar" />
+            </form>
+            <form method="POST" action="/delete-chat">
+                <input id="clear-btn" class="rounded-full py-3 px-5 border-2 border-gray-900 ml-2 text-gray-900" type="submit" name="clear" value="Limpar" />
+            </form>
+        </div>
+    </section>
+</body>
+</html>
